@@ -2,10 +2,10 @@ import React from 'react'
 
 export default function About() {
   return (
-    <div className="flex justify-center flex-wrap mx-auto  my-10 p-5 bg-white shadow-lg rounded-md">
-      <h1 className="mt-6 text-center text-4xl font-bold mb-4">Welcome to my Dream Estate</h1>
+    <div className="flex justify-center flex-wrap max-w-7xl max-h-full mx-auto p-5 bg-white shadow-lg rounded-md">
+      <h1 className="mt-6 text-center text-slate-700 text-3xl font-bold mb-4">Welcome to my Dream Estate</h1>
 
-      <div className="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 gap-3 p-5">
+      <div className="flex flex-wrap md:flex-row items-center justify-center space-y-6 md:space-y-0 gap-4 my-7">
 
         <div className="md:w-1/2 mb-4 md:mb-0">
           <img 
@@ -18,7 +18,7 @@ export default function About() {
             Our mission is to simplify the real estate journey, providing you with the tools and information
             you need to make informed decisions about your property endeavors.
           </p>
-          <p className="text-lg mt-2">
+          <p className="text-slate-700 text-lg mt-2">
             <span className="font-bold">Who We Are</span>
           </p>
           <p className="text-lg mt-2">
@@ -27,7 +27,7 @@ export default function About() {
             buy, sell, and rent properties. We understand that a home is more than just a structure;
             it's where memories are made and dreams are realized.
           </p>
-          <p className='mt-2'>
+          <p className='text-slate-700 text-lg mt-2'>
             <strong >What Sets Us Apart</strong>
           </p>
           <p className='mt-2'>
@@ -35,7 +35,7 @@ export default function About() {
             with personalized service. Our user-friendly interface empowers you to explore listings with ease,
             while our team of experienced professionals is ready to provide expert guidance every step of the way.
           </p>
-          <p className='mt-2'>
+          <p className='text-slate-700 text-lg mt-2'>
             <strong>Our Services</strong>
           </p>
           <p className='mt-2'>
@@ -44,7 +44,7 @@ export default function About() {
             the perfect match for your needs and preferences. From first-time buyers to seasoned investors, we cater to
             all levels of experience in the real estate market.
           </p>
-          <p className='mt-2'>
+          <p className='text-slate-700 text-lg mt-2'>
             <strong>Community Engagement</strong>
           </p>
           <p className='mt-2'>
@@ -53,7 +53,7 @@ export default function About() {
             of the neighborhoods we serve. We believe that a strong community enhances the overall quality of life,
             and we are proud to play a role in fostering that strength.
           </p>
-          <p className='mt-2'>
+          <p className='text-slate-700 text-lg mt-2'>
             <strong>Join Us on the Journey</strong>
           </p>
           <p className='mt-2'>

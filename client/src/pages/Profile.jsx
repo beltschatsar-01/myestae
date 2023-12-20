@@ -76,7 +76,8 @@ const handleSubmit = async (e) => {
 };
 
   return (
-    <div className="p-3 max-w-lg mx-auto">
+    <div className="flex justify-center flex-wrap max-w-7xl max-h-full mx-auto p-5 bg-white shadow-lg rounded-md">
+    <div className="mt-6 p-3 max-w-lg mx-auto">
       <h1 className="text-3xl font-semibold text-center my-7">Profile</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <input 
@@ -155,6 +156,7 @@ const handleSubmit = async (e) => {
           {updateSuccess ? 'User is updated successfully!' : ''}
       </p>
 
+    </div>
     </div>
   )
 }
