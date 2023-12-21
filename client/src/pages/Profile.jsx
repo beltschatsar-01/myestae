@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux"
-import { useRef,useState,useEffect } from "react"
-import {getDownloadURL, getStorage, ref, uploadBytesResumable, } from 'firebase/storage'
+import { useRef, useState, useEffect } from "react"
+import { getDownloadURL, getStorage, ref, uploadBytesResumable } from 'firebase/storage'
 import {app} from '../firebase'
 import {
   updateUserStart,
@@ -16,7 +16,7 @@ import {Link} from 'react-router-dom'
 
 export default function Profile() {
   const fileRef = useRef(null);
-  const {currentUser, loading, error } = useSelector((state)=>state.user);
+  const {currentUser, loading, error } = useSelector((state) => state.user);
   const [file, setFile] = useState(undefined);
   const [filePerc, setFilePerc] = useState(0);
   const [fileUploadError, setFileUploadError] = useState(false);
@@ -25,7 +25,7 @@ export default function Profile() {
   const dispatch = useDispatch();
   
 
-  useEffect(()=>{
+  useEffect(() => {
     if(file) {
       handleFileUpload(file);
     }
@@ -46,7 +46,7 @@ export default function Profile() {
       (error) => {
         setFileUploadError(true);
       },
-      ()=>{
+      () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => 
         setFormData({...formData, avatar:downloadURL}));
       }

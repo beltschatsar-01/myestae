@@ -113,7 +113,7 @@ export default function UpdateListing() {
             <p className='font-semibold'>
               Images:
               <span className='font-normal text-gray-600 ml-2'>
-                The first image will be the cover (max 6)
+                The first image will be the cover 
               </span>
             </p>
             <div className='flex gap-4'>

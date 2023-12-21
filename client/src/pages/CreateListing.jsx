@@ -90,6 +90,17 @@ export default function CreateListing() {
                 required
                 className='p-3 border border-gray-300 rounded-lg'
               />
+              <p>Bedrooms</p>
+            </div>
+          <div className='flex items-center gap-2'>
+              <input
+                type='number'
+                id='bathrooms'
+                min='1'
+                max='10'
+                required
+                className='p-3 border border-gray-300 rounded-lg'
+              />
               <p>Baths</p>
             </div>
             <div className='flex items-center gap-2'>
@@ -113,7 +124,7 @@ export default function CreateListing() {
             <p className='font-semibold'>
               Images:
               <span className='font-normal text-gray-600 ml-2'>
-                The first image will be the cover (max 6)
+                The first image will be the cover 
               </span>
             </p>
             <div className='flex gap-4'>
