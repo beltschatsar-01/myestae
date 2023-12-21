@@ -2,8 +2,8 @@ import React from 'react'
 
 export default function About() {
   return (
-    <div className="flex justify-center flex-wrap max-w-7xl max-h-full mx-auto p-5 bg-white shadow-lg rounded-md">
-      <h1 className="mt-6 text-center text-slate-700 text-3xl font-bold mb-4">Welcome to my Dream Estate</h1>
+    <div className="flex justify-center flex-wrap max-w-7xl max-h-full mx-auto p-5 bg-gray-200 shadow-lg rounded-md">
+      <h1 className="mt-6 text-center text-slate-700 text-3xl font-bold mb-4">My Dream Estate</h1>
 
       <div className="flex flex-wrap md:flex-row items-center justify-center space-y-6 md:space-y-0 gap-4 my-7">
 

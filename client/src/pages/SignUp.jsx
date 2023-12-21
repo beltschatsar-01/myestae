@@ -43,7 +43,7 @@ export default function SignUp() {
   }
   return (
     <section className="flex  justify-center flex-wrap items-center min-h-screen">
-      <div className="max-w-md w-full lg:w-[60%] bg-white p-8 rounded-md shadow-lg">
+      <div className="max-w-md w-full lg:w-[60%] bg-gray-200 p-8 rounded-md shadow-lg">
         <h1 className="text-3xl text-center font-bold mb-6">Sign Up</h1>
         <img
           src="https://plus.unsplash.com/premium_photo-1661775953246-410e3a33977c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8a2V5fGVufDB8fDB8fHww"

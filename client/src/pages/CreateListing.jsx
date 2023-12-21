@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function CreateListing() {
   return (
-    <main className="flex justify-center flex-wrap max-w-7xl max-h-full mx-auto p-5 bg-white shadow-lg rounded-md">
+    <main className="flex justify-center flex-wrap max-w-7xl max-h-full mx-auto p-5 bg-gray-200 shadow-lg rounded-md">
       <h1 className="mt-6 text-center text-slate-700 text-3xl font-semibold mb-4 w-full">
         Create a Listing
       </h1>
@@ -14,86 +14,74 @@ export default function CreateListing() {
             className="w-full h-auto rounded-md"
           />
         </div>
-        <form className="w-full md:w-1/2 mt-6 flex flex-col sm:flex-row gap-4">
-          <div className="flex flex-col gap-4 flex-1">
+        <form className='flex flex-col sm:flex-row gap-4 md:w-1/2'>
+          <div className='flex flex-col gap-4 flex-1'>
             <input
-              type="text"
-              placeholder="Title"
-              className="border p-3 rounded-lg"
-              id="name"
-              maxLength="100"
-              minLength="5"
+              type='text'
+              placeholder='Name'
+              className='border p-3 rounded-lg'
+              id='name'
+              maxLength='62'
+              minLength='10'
               required
             />
             <textarea
-              type="text"
-              placeholder="Description"
-              className="border p-3 rounded-lg"
-              id="description"
-              required
-            ></textarea>
-            <input
-              type="text"
-              placeholder="Address"
-              className="border p-3 rounded-lg"
-              id="address"
+              type='text'
+              placeholder='Description'
+              className='border p-3 rounded-lg'
+              id='description'
               required
             />
-            <div className="flex gap-6 flex-wrap">
-              <div className='flex gap-2'> 
-                <input
-                  type='checkbox'
-                  id='sale'
-                  className='w-5'
-                />
-                <span>Sell</span>               
-              </div>
-              <div className='flex gap-2'> 
-                <input
-                  type='checkbox'
-                  id='sale'
-                  className='w-5'
-                />
-                <span>Rent</span>               
-              </div>
-              <div className='flex gap-2'> 
-                <input
-                  type='checkbox'
-                  id='sale'
-                  className='w-5'
-                />
-                <span>Parking</span>               
-              </div>
-              <div className='flex gap-2'> 
-                <input
-                  type='checkbox'
-                  id='sale'
-                  className='w-5'
-                />
-                <span>Furnished</span>               
-              </div>
-              <div className='flex gap-2'> 
-                <input
-                  type='checkbox'
-                  id='sale'
-                  className='w-5'
-                />
-                <span>offer</span>               
-              </div>
+            <input
+              type='text'
+              placeholder='Address'
+              className='border p-3 rounded-lg'
+              id='address'
+              required
+            />
+            <div className='flex gap-6 flex-wrap'>
+            <div className='flex gap-2'>
+              <input
+                type='checkbox'
+                id='sale'
+                className='w-5'
+              />
+              <span>Sell</span>
             </div>
-            <div className="flex flex-wrap gap-6">
-              <div className='flex items-center gap-2'>
-                <input
-                  type='number'
-                  id='bedrooms'
-                  min='1'
-                  max='10'
-                  required
-                  className='p-3 border border-gray-300 rounded-lg'
-                />
-                <p>Beds</p>
+            <div className='flex gap-2'>
+              <input
+                type='checkbox'
+                id='rent'
+                className='w-5'
+              />
+              <span>Rent</span>
             </div>
-            <div className='flex items-center gap-2'>
+            <div className='flex gap-2'>
+              <input
+                type='checkbox'
+                id='parking'
+                className='w-5'
+              />
+              <span>Parking spot</span>
+            </div>
+            <div className='flex gap-2'>
+              <input
+                type='checkbox'
+                id='furnished'
+                className='w-5'
+              />
+              <span>Furnished</span>
+            </div>
+            <div className='flex gap-2'>
+              <input
+                type='checkbox'
+                id='offer'
+                className='w-5'
+              />
+              <span>Offer</span>
+            </div>
+          </div>
+          <div className='flex items-center gap-2'>
               <input
                 type='number'
                 id='bathrooms'
@@ -121,11 +109,36 @@ export default function CreateListing() {
               </div>
             </div>
           </div>
-          <button
-            className='mt-3 p-3 bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 disabled:opacity-80'
-          >
-            Create listing
-          </button>
+          <div className='flex flex-col flex-1 gap-4'>
+            <p className='font-semibold'>
+              Images:
+              <span className='font-normal text-gray-600 ml-2'>
+                The first image will be the cover (max 6)
+              </span>
+            </p>
+            <div className='flex gap-4'>
+              <input
+                className='p-3 border border-gray-300 rounded w-full'
+                type='file'
+                id='images'
+                accept='image/*'
+                multiple
+              />
+              <button
+                type='button'
+                className='p-3 text-green-700 border border-green-700 rounded uppercase hover:shadow-lg disabled:opacity-80'
+              >
+                Upload
+              </button>
+            </div>
+            <p className='text-red-700 text-sm'>
+              {/* Error message goes here */}
+            </p>
+            <button
+              className='p-3 bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 disabled:opacity-80'
+            >
+              Create Listing
+            </button>
           </div>
         </form>
       </div>

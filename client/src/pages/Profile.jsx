@@ -6,6 +6,10 @@ import {
   updateUserStart,
   updateUserFailure,
   updateUserSuccess,
+  deleteUserFailure,
+  deleteUserStart,
+  deleteUserSuccess,
+  signOutUserStart,
 } from '../redux/user/userSlice';
 import { useDispatch } from "react-redux"
 import {Link} from 'react-router-dom'
@@ -56,7 +60,7 @@ const handleSubmit = async (e) => {
   e.preventDefault();
   try {
     dispatch(updateUserStart());
-    const res = await fetch(`/api/user/update/${currentUser._id}`, {
+    const res = await fetch(`/api/user/update/${currentUser?._id}`, {
       method:'POST',
       headers:{
         'content-type':'application/json'
@@ -64,7 +68,7 @@ const handleSubmit = async (e) => {
       body: JSON.stringify(formData),
     });
     const data = await res.json();
-    if (data.success===false){
+    if (data?.success===false){
       dispatch(updateUserFailure(data.message))
       return;
     }
@@ -74,10 +78,40 @@ const handleSubmit = async (e) => {
     dispatch(updateUserFailure(error.message));
   }
 };
+const handleDeleteUser = async () => {
+  try {
+    dispatch(deleteUserStart());
+    const res = await fetch(`/api/user/delete/${currentUser._id}`, {
+      method: 'DELETE',
+    });
+    const data = await res.json();
+    if (data.success === false) {
+      dispatch(deleteUserFailure(data.message));
+      return;
+    }
+    dispatch(deleteUserSuccess(data));
+  } catch (error) {
+    dispatch(deleteUserFailure(error.message));
+  }
+};
 
+const handleSignOut = async () => {
+  try {
+    dispatch(signOutUserStart());
+    const res = await fetch('/api/auth/signout');
+    const data = await res.json();
+    if (data.success === false) {
+      dispatch(deleteUserFailure(data.message));
+      return;
+    }
+    dispatch(deleteUserSuccess(data));
+  } catch (error) {
+    dispatch(deleteUserFailure(data.message));
+  }
+};
   return (
-    <div className="flex justify-center flex-wrap max-w-7xl max-h-full mx-auto p-5 bg-white shadow-lg rounded-md">
-    <div className="mt-6 p-3 max-w-lg mx-auto">
+    <section className="flex  justify-center flex-wrap items-center min-h-screen">
+      <div className="max-w-md w-full lg:w-[60%] bg-gray-200 p-8 rounded-md shadow-lg">
       <h1 className="text-3xl font-semibold text-center my-7">Profile</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <input 
@@ -142,10 +176,10 @@ const handleSubmit = async (e) => {
         </Link>
       </form>
       <div className="flex justify-between mt-5">
-        <span className="text-red-700 cursor-pointer">
+        <span  onClick={handleDeleteUser} className="text-red-700 cursor-pointer">
           Delete account
         </span>
-        <span className="text-red-700 cursor-pointer">
+        <span  onClick={handleSignOut} className="text-red-700 cursor-pointer">
           Sign out
         </span>
       </div>
@@ -157,6 +191,6 @@ const handleSubmit = async (e) => {
       </p>
 
     </div>
-    </div>
+    </section>
   )
 }
