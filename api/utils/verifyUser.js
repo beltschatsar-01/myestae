@@ -13,3 +13,5 @@ export const verifyToken = (req, res, next) => {
     next();
   });
 };
+
+//jwt.sign({ user: userId }, process.env.JWT_SECRET, { expiresIn: '1h' });
