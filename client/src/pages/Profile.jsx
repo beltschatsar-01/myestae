@@ -48,7 +48,7 @@ export default function Profile() {
       },
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => 
-        setFormData({...formData, avatar:downloadURL}));
+        setFormData({ ...formData, avatar:downloadURL}));
       }
     );
   };
@@ -60,7 +60,7 @@ const handleSubmit = async (e) => {
   e.preventDefault();
   try {
     dispatch(updateUserStart());
-    const res = await fetch(`/api/user/update/${currentUser?._id}`, {
+    const res = await fetch(`/api/user/update/${currentUser._id}`, {
       method:'POST',
       headers:{
         'content-type':'application/json'
@@ -68,7 +68,8 @@ const handleSubmit = async (e) => {
       body: JSON.stringify(formData),
     });
     const data = await res.json();
-    if (data?.success===false){
+   
+    if (data.success===false){
       dispatch(updateUserFailure(data.message))
       return;
     }
@@ -77,6 +78,7 @@ const handleSubmit = async (e) => {
   } catch (error) {
     dispatch(updateUserFailure(error.message));
   }
+  console.log(currentUser);
 };
 const handleDeleteUser = async () => {
   try {
