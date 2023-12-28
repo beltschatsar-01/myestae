@@ -184,7 +184,7 @@ export default function UpdateListing() {
             className="w-full h-auto rounded-md"
           />
         </div>
-        <form onSubmit={handleSubmit} className='flex flex-col sm:flex-row gap-4'>
+        <form onSubmit={handleSubmit} className='flex flex-col sm:flex-row gap-4 md:w-1/2'>
         <div className='flex flex-col gap-4 flex-1'>
           <input
             type='text'
