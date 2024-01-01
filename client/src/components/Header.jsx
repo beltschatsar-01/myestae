@@ -1,4 +1,5 @@
 import { FaSearch } from 'react-icons/fa';
+import { FcHome } from "react-icons/fc";
 import {Link, useNavigate} from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useEffect,useState } from 'react';
@@ -25,8 +26,9 @@ export default function Header() {
   return (
     <header className='bg-slate-200 shadow-md'>
       <div className='flex justify-between items-center max-w-7xl mx-auto p-3'>
-        <Link to='/'>
-          <h1 className='font-bold text-sm sm:text-xl flex flex-wrap'>
+        <Link to='/' className='flex items-center'>
+          <FcHome size={36}/>
+          <h1 className='font-bold text-sm sm:text-xl ml-1'>
             <span className='text-slate-500'>myDream</span>
             <span className='text-slate-700'>Estate</span>
           </h1>

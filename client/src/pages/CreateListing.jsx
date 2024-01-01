@@ -158,7 +158,7 @@ export default function CreateListing() {
 
 
   return (
-    <main className="flex justify-center flex-wrap max-w-7xl max-h-full mx-auto p-5 bg-gray-200 shadow-lg rounded-md">
+    <main className="flex justify-center flex-wrap max-w-7xl max-h-full mx-auto p-5shadow-lg rounded-md">
       <h1 className="mt-6 text-center text-slate-700 text-3xl font-semibold mb-4 w-full">
         Create a Listing
       </h1>

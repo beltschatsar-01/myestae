@@ -157,7 +157,7 @@ export default function Profile() {
   };
   return (
     <section className="flex  justify-center flex-wrap items-center min-h-screen">
-      <div className="max-w-md w-full lg:w-[60%] bg-gray-200 p-8 rounded-md shadow-lg">
+      <div className="max-w-md w-full lg:w-[60%] p-8 rounded-md shadow-lg">
       <h1 className="text-3xl font-semibold text-center my-7">Profile</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <input 
