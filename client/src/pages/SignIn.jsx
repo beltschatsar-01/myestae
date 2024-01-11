@@ -45,21 +45,19 @@ export default function SignIn() {
     }
   };
   return (
-    <main className="w-full h-screen flex flex-col items-center justify-center px-4">
+    <main className="w-full h-screen flex flex-col items-center justify-center shadow-lg px-4">
     <div className="max-w-sm w-full text-gray-600 space-y-5">
       <div className="mx-auto text-center pb-8">
-        <div className='flex items-center ml-14'>
-          <div className='p-1'><FcHome size={36}/></div>
-          <h1 className='font-bold text-3xl ml-1' ><span className='text-slate-500'>myDream</span><span className="text-slate-700">Estate</span></h1>
+        
+        <div className="mb-9">
+          <h3 className="text-gray-800 text-2xl font-bold sm:text-3xl">Sign in to your account</h3>
         </div>
         <img
           src="https://plus.unsplash.com/premium_photo-1661775953246-410e3a33977c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8a2V5fGVufDB8fDB8fHww"
           alt="key"
           className="w-full rounded mt-7"
         />
-        <div className="mt-7">
-          <h3 className="text-gray-800 text-2xl font-bold sm:text-3xl">Sign in to your account</h3>
-        </div>
+        
       </div>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <input

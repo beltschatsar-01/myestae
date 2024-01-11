@@ -1,9 +1,29 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 
 export default function Contact({ listing }) {
   const [landlord, setLandlord] = useState(null);
   const [message, setMessage] = useState('');
+
+  const sendEmail = async () => {
+    try {
+      await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          landlordEmail: landlord.email,
+          subject: `Regarding ${listing.name}`,
+          message,
+        }),
+      });
+      alert('Message sent successfully!');
+    } catch (error) {
+      console.error(error);
+      alert('Failed to send message. Please try again.');
+    }
+  };
+
   const onChange = (e) => {
     setMessage(e.target.value);
   };
@@ -15,11 +35,12 @@ export default function Contact({ listing }) {
         const data = await res.json();
         setLandlord(data);
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     };
     fetchLandlord();
   }, [listing.userRef]);
+
   return (
     <>
       {landlord && (
@@ -39,12 +60,12 @@ export default function Contact({ listing }) {
             className='w-full border p-3 rounded-lg'
           ></textarea>
 
-          <Link
-          to={`mailto:${landlord.email}?subject=Regarding ${listing.name}&body=${message}`}
-          className='bg-slate-700 text-white text-center p-3 uppercase rounded-lg hover:opacity-95'
+          <button
+            onClick={sendEmail}
+            className='bg-slate-700 text-white text-center p-3 uppercase rounded-lg hover:opacity-95'
           >
-            Send Message          
-          </Link>
+            Send Message
+          </button>
         </div>
       )}
     </>

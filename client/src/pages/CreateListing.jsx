@@ -122,6 +122,12 @@ export default function CreateListing() {
       });
     }
   };
+  const handleAddressChange = (e) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      address: e.target.value,
+    }));
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -158,7 +164,7 @@ export default function CreateListing() {
 
 
   return (
-    <main className="flex justify-center flex-wrap max-w-7xl max-h-full mx-auto p-5shadow-lg rounded-md">
+    <main className="flex justify-center flex-wrap max-w-7xl max-h-full mx-auto p-5 shadow-lg rounded-md">
       <h1 className="mt-6 text-center text-slate-700 text-3xl font-semibold mb-4 w-full">
         Create a Listing
       </h1>
@@ -192,15 +198,20 @@ export default function CreateListing() {
             onChange={handleChange}
             value={formData.description}
           />
-          <input
-            type='text'
-            placeholder='Address'
-            className='border p-3 rounded-lg'
-            id='address'
-            required
-            onChange={handleChange}
-            value={formData.address}
-          />
+            <select
+              id='address'
+              value={formData.address}
+              onChange={handleAddressChange}
+              className='border p-3 rounded-lg'
+              required
+            >
+              <option value='' disabled>Select an address</option>
+              <option value='kyrenia'>kyrenia</option>
+              <option value='lefkosa'>Lefkosa</option>
+              <option value='lefke'>Lefke</option>
+              <option value='iskele'>Iskele</option>
+              <option value='guzelyurt'>Guzelyurt</option>
+            </select>
           <div className='flex gap-6 flex-wrap'>
             <div className='flex gap-2'>
               <input

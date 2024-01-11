@@ -7,6 +7,7 @@ export default function Search() {
   const [sidebardata, setSidebardata] = useState({
     searchTerm: '',
     type: 'all',
+    address: '',
     parking: false,
     furnished: false,
     offer: false,
@@ -22,6 +23,7 @@ export default function Search() {
     const urlParams = new URLSearchParams(location.search);
     const searchTermFromUrl = urlParams.get('searchTerm');
     const typeFromUrl = urlParams.get('type');
+    const addressFromUrl = urlParams.get('address');
     const parkingFromUrl = urlParams.get('parking');
     const furnishedFromUrl = urlParams.get('furnished');
     const offerFromUrl = urlParams.get('offer');
@@ -31,6 +33,7 @@ export default function Search() {
     if (
       searchTermFromUrl ||
       typeFromUrl ||
+      addressFromUrl || 
       parkingFromUrl ||
       furnishedFromUrl ||
       offerFromUrl ||
@@ -40,6 +43,7 @@ export default function Search() {
       setSidebardata({
         searchTerm: searchTermFromUrl || '',
         type: typeFromUrl || 'all',
+        address: addressFromUrl || '',
         parking: parkingFromUrl === 'true' ? true : false,
         furnished: furnishedFromUrl === 'true' ? true : false,
         offer: offerFromUrl === 'true' ? true : false,
@@ -78,6 +82,9 @@ export default function Search() {
     if (e.target.id === 'searchTerm') {
       setSidebardata({ ...sidebardata, searchTerm: e.target.value });
     }
+    if (e.target.id === 'address') {
+      setSidebardata({ ...sidebardata, address: e.target.value });
+    }
 
     if (
       e.target.id === 'parking' ||
@@ -100,6 +107,7 @@ export default function Search() {
     }
   };
 
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const urlParams = new URLSearchParams();
@@ -110,6 +118,7 @@ export default function Search() {
     urlParams.set('offer', sidebardata.offer);
     urlParams.set('sort', sidebardata.sort);
     urlParams.set('order', sidebardata.order);
+    urlParams.set('address', sidebardata.address);
     const searchQuery = urlParams.toString();
     navigate(`/search?${searchQuery}`);
   };
@@ -131,18 +140,25 @@ export default function Search() {
     <div className='flex flex-col md:flex-row'>
       <div className='p-7  border-b-2 md:border-r-2 md:min-h-screen'>
         <form onSubmit={handleSubmit} className='flex flex-col gap-8'>
+        
           <div className='flex items-center gap-2'>
             <label className='whitespace-nowrap font-semibold'>
-              Search Term:
+              City:
             </label>
-            <input
-              type='text'
-              id='searchTerm'
-              placeholder='Search...'
-              className='border rounded-lg p-3 w-full'
-              value={sidebardata.searchTerm}
+            <select
+              id='address'
               onChange={handleChange}
-            />
+              value={sidebardata.address}
+              className='border rounded-lg p-3 w-full'
+              required
+            >
+              <option value='' disabled>Select an address</option>
+              <option value='kyrenia'>kyrenia</option>
+              <option value='lefkosa'>Lefkosa</option>
+              <option value='lefke'>Lefke</option>
+              <option value='iskele'>Iskele</option>
+              <option value='guzelyurt'>Guzelyurt</option>
+            </select>
           </div>
           <div className='flex gap-2 flex-wrap items-center'>
             <label className='font-semibold'>Type:</label>

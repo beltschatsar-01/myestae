@@ -83,6 +83,11 @@ export const getListings = async (req, res, next) => {
     if (parking === undefined || parking === 'false') {
       parking = { $in: [false, true] };
     }
+    let address = req.query.address;
+
+    if (address === undefined || address === 'false') {
+      address = { $in: ['address'] };
+    }
 
     let type = req.query.type;
 
